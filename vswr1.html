@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSWR Calculator</title>
+    <style>
+      body {
+        width: 96%;
+        margin: 10px auto;
+        /* background-color: grba(100, 100,100, 0.1); */
+      }
+      fieldset {
+        background-color: rgba(100, 100, 100, 0.1);
+        border: 1px solid navy;
+        padding: 10px;
+        border-radius: 0.5rem;
+        legend {
+          font-weight: 300;
+          color: navy;
+          background: grba(100, 125, 100, 0.2);
+          border: 1px solid navy;
+          border-radius: 0.3rem;
+          padding: 0.1rem 0.1rem;
+        }
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+    <div class="container">
+        <h1>VSWR Calculator</h1>
+        <form id="vswrForm">
+            <label for="impedance">Impedance (Ω):</label>
+            <input type="number" 
+              id="impedance" 
+              step="0.1" required>
+            <br><br>
+            <label for="load_r">Load Impedance R(Ω):</label>
+            <input type="number" 
+              id="load_r" 
+              step="0.1" required>
+            <br><br>
+            <label for="load_x">Load Impedance X(Ω):</label>
+            <input type="number" 
+              id="load_X" 
+              step="0.1" required>
+            <br><br>
+            <button type="submit">Calculate VSWR</button>
+        </form>
+        <fieldset>
+          <legend>results</legend>
+        </fieldset>
+        <div id="result">vswr:</div>
+        <div id="statusIndicator" 
+             class="status-indicator">Ready</div>
+        <br>
+        <textarea id="explanation" 
+          rows="6"
+          cols="50"
+          minheight="8rem"
+          readonly></textarea>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
