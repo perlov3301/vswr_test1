@@ -1,7 +1,7 @@
 // Listen for changes in document.readyState
 document.addEventListener("readystatechange", () => {
     console.log("console; readyState:", document.readyState);
-    const v_text = document.getElementById("explanation");
+    const v_text = document.getElementById("explanation")
     v_text.value += `Current readyState: ${document.readyState}\n`;
     if (document.readyState==="interactive") {
       console.log("if to console;DOM is interactive");
@@ -72,8 +72,7 @@ function updateResult() {
   try {
     const data = calculateVSWR();
     resultDiv.textContent = `VSWR: ${formatNumber(data.vswr)} (|Γ| = ${formatNumber(data.gamma)})`;
-    explanationArea.value = `Calculated from Z0=${impedanceInput.value} Ω 
-       and ZL=${loadRInput.value} ${loadXInput.value >= 0 ? "+j" : "-j"}${loadXInput.value} Ω.\n` +
+    explanationArea.value = `Calculated from Z0=${impedanceInput.value} Ω and ZL=${loadRInput.value} ${loadXInput.value >= 0 ? "+" : ""}${loadXInput.value}j Ω.\n` +
       `Reflection coefficient magnitude |Γ| = ${formatNumber(data.gamma)}.\n` +
       `VSWR = (1 + |Γ|) / (1 - |Γ|) = ${formatNumber(data.vswr)}.`;
     setState("submitted");
