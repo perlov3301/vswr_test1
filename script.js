@@ -73,7 +73,7 @@ function updateResult() {
     explanationArea.value = `Calculated from Z0=${impedanceInput.value} Ω 
        and ZL=${loadRInput.value} ${loadXInput.value >= 0 ? "+j" : "-j"}${loadXInput.value} Ω.\n` +
       `Reflection coefficient magnitude |Γ| = ${formatNumber(data.gamma)}.\n` +
-      `VSWR = (1 + |Γ|) / (1 - |Γ|) = ${formatNumber(data.vswr)}.`;
+      `VSWR = (1 + |Γ|) / (1 - |Γ|) = ${formatNumber(data.vswr)}`;
     setState("submitted");
   } catch (error) {
     resultDiv.textContent = "VSWR: —";
