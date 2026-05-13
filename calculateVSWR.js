@@ -1,6 +1,6 @@
 class calculate {
   /**
-   @param {number} Z0: Generator's characteristic Impedance
+   @param {number} z0: Generator's characteristic Impedance
    @param {number} {Zin_real, Zin_imag}: Impedance at input of parallel combination
    @returns {object} {gamma, vswr }where gamma is the reflection coefficient magnitude and 
         vswr is the Voltage Standing Wave Ratio 
@@ -10,7 +10,7 @@ class calculate {
    */
 
   static calculateVSWR(Z0, Zin_real, Zin_imag) {
-    if (!z0 || Number.isNaN(z0) 
+    if (!Z0 || Number.isNaN(Z0) 
         || Number.isNaN(Zin_real) 
         || Number.isNaN(Zin_imag)) {
     throw new Error(
@@ -46,4 +46,4 @@ class calculate {
   };
 }
 }
-export {calculateVSWR} ;
+export {calculate}; 

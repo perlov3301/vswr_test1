@@ -30,9 +30,9 @@ function setState(state) {
     ready: "ready for input",
     modified: "Input changed",
     submitted: "Calculated",
-    calculatedZin: "Zin has calculated",
-    error_calculatingZin: "error calculating Zin",
-    "error_calculatingVSWR": "error calculating VSWR",
+    calculatedZin: "Zin was calculated",
+    error_calculating: "error calculating Zin or VSWR",
+    calculatedVSWR: "VSWR was calculated",
   };
   statusIndicator.textContent= captions[state] || state;
   statusIndicator.className= `status-indicator ${state}`;
@@ -82,12 +82,14 @@ function updateResult() {
       `line2: Z02=${Z02}Ω, length=${length2}m; load ZL2=${ZL2_real}+${ZL2_imag}*j Ω\n` +
       `Frequency: ${frequency}MHz\n` +
       `Resulting Zin= ${formatNumber(data.Zin_parallel.real)} ${ZinImag} Ω\n` 
-    //  + `Magnitude |Zin| = ${formatNumber(data.Zin_parallel.magnitude)} Ω\n`
-    //  +`Phase = ${formatNumber(data.Zin_parallel.phase)}°`
+    
       ;
   setState("calculatedZin");
+  const vswrData= calculate.calculateVSWR(Z0, data.Zin_parallel.real, data.Zin_parallel.imag);
+  result_vswr.textContent= `VSWR: ${formatNumber(vswrData.vswr)} 
+    (|Γ| = ${formatNumber(vswrData.gamma)})`;
   } catch (error) {
-    resultDiv.textContent = "Error calculating impedance";
+    resultDiv.textContent = "Error calculating impedance or VSWR.";
     explanationArea.value = error.message;
     setState("error_calculatingZin");
   }
