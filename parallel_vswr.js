@@ -9,13 +9,14 @@ document.addEventListener("readystatechange", () => {
 });
 const form= document.getElementById("vswrForm");
 const generatorR= document.getElementById("generatorR");
-const frequencyInput= document.getElementById("frequency");
+const frequency_n_input= document.getElementById("frequency_n")
+const frequency1Input= document.getElementById("frequency1");
 const line1_R= document.getElementById("line1_R");
 const line2_R= document.getElementById("line2_R");
 const line1_L= document.getElementById("line1_L");
 const line2_L= document.getElementById("line2_L");
-const load_real= document.getElementById("load_real");
-const load_imag= document.getElementById("load_imag");
+const load_real1= document.getElementById("load_real1");
+const load_imag1= document.getElementById("load_imag1");
 const resultDiv= document.getElementById("result");
 const result_vswr= document.getElementById("result_vswr");
 const explanationArea= document.getElementById("explanation");
@@ -48,16 +49,21 @@ import { timenow } from './timenow.js';
 import { calculate } from './calculateVSWR.js';
 const vf=1;
 // let vf=1;
+const f_n= parseInt(frequency_n_input.value);
+let f_array= [];
+const f1= parseFloat(frequency1Input.value);
+f_array[0]=f1;
 function updateResult() {
   try {
     const Z0=  parseFloat(generatorR.value);
-    const frequency= parseFloat(frequencyInput.value);
+    const f_n= parseInt(frequency_n_input.value,10);
+    const frequency= f1
     const Z01= parseFloat(line1_R.value);
     const Z02= parseFloat(line2_R.value);
     const length1= parseFloat(line1_L.value);
     const length2= parseFloat(line2_L.value);
-    const ZL2_real= parseFloat(load_real.value);
-    const ZL2_imag= parseFloat(load_imag.value);
+    const ZL2_real= parseFloat(load_real1.value);
+    const ZL2_imag= parseFloat(load_imag1.value);
     if (Number.isNaN(Z0) || Number.isNaN(frequency) || 
         Number.isNaN(Z01) || Number.isNaN(Z02) || 
         Number.isNaN(length1) || Number.isNaN(length2) || 
@@ -94,6 +100,7 @@ function updateResult() {
     setState("error_calculatingZin");
   }
 }
+//end of updateResult
 
 function markModified() {
   if (currentState !== "modified") {
@@ -106,13 +113,13 @@ function markSubmitted() {
 }
 
 generatorR.addEventListener("input", markModified);
-frequencyInput.addEventListener("input", markModified);
+frequency1Input.addEventListener("input", markModified);
 line1_R.addEventListener("input", markModified);
 line1_L.addEventListener("input", markModified);
 line2_R.addEventListener("input", markModified);
 line2_L.addEventListener("input", markModified);
-load_real.addEventListener("input", markModified);
-load_imag.addEventListener("input", markModified);
+load_real1.addEventListener("input", markModified);
+load_imag1.addEventListener("input", markModified);
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();

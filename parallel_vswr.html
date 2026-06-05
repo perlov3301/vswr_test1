@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet" />
     <title>Zin->VSWR</title>
     <style>
       body {
@@ -10,68 +11,46 @@
         margin: 10px auto;
         /* background-color: grba(100, 100,100, 0.1); */
       }
-      input {
-        padding: 5px;
-        border: 1px solid navy;
-        border-radius: 5px;
-        max-width: 110px;
-      }
-      .inline-inputs {
-        display: flex;
-        gap: 10px;
-        /* align-items: center; */
-        flex-wrap:wrap;
-      }
-      .inline-inputs input {
-        flex:1;
-        max-width:90px;
-      }
-      .inline-inputs label {
-        font-weight: 500;
-      }
-      fieldset {
-        background-color: rgba(100, 100, 100, 0.1);
-        border: 1px solid navy;
-        padding: 10px;
-        border-radius: 0.5rem;
-        legend {
-          font-weight: 300;
-          color: navy;
-          background: grba(100, 125, 100, 0.2);
-          border: 1px solid navy;
-          border-radius: 0.3rem;
-          padding: 0.02rem 0.2rem;
-        }
-      }
-      button {
-        font-weight: 400;
-        border: 2px solid rgb(11, 11, 39);
-        border-radius: 5px;
-        background-color: rgb(55, 55, 176);
-        color: white;
-      }
-      button:active {
-        background-color: darkblue;
-        border: 2px solid rgb(119, 119, 239);
-      }
+      
     </style>
     <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
 <body>
     <div class="container">
-        <h1>parallel_vswr.html</h1>
+        <h1>f_arrea[0]_zload_arrea[0]_stage_arrea[0]</h1>
         <form id="vswrForm">
             <label for="generator">generator Impedance (Ω):</label>
             <input type="number" 
               id="generatorR" 
               step="0.01" required>
             <br><br>
-            <label for="frequency">frequency (MHz):</label>
+            <label for="frequency_n" >number of frequencies</label>
             <input type="number" 
-              id="frequency" 
-              step="0.001" required>
-            <br><br>
-            <label for="">line1 is ended by short circuit; line2 is ended by complex load </label>
+              id="frequency_n" 
+              step="1" required >
+            <br>
+            <br>
+            <div class="inline-inputs">
+              <label for="frequency1">frequency (MHz)</label>
+              <input type="number" 
+                id="frequency1" 
+                step="0.1" required>
+              <label for="load_real1">Load real   R(Ω):</label>
+              <input type="number" 
+                id="load_real1" 
+                step="0.0000001" required>
+              <label for="load_imag1">Load imag X(Ω):</label>
+              <input type="number" 
+                id="load_imag1" 
+                step="0.0001" required>
+            </div>
+            <br>
+            <!-- <iframe width="90%" height="100rem" >
+              iframe
+            </iframe> -->
+            <br>
+            <p>stage number 1</p>
+            <label for="">line1 is ended by short circuit; line2 is ended by complex Impedance </label>
             <br><br>
             <div class="inline-inputs">
               <label for="line1_R">line1 impedance (Ω)</label>
@@ -81,7 +60,7 @@
               <label for="line1_L">line1 length (m)</label>
               <input type="number" 
                 id="line1_L" 
-                step="0.00001" required>
+                step="0.0000001" required>
             </div>
             <br>
             <div class="inline-inputs">
@@ -92,20 +71,11 @@
               <label for="line2_L">line2 length (m)</label>
               <input type="number" 
                 id="line2_L" 
-                step="0.00001" required>
+                step="0.0000001" required>
             </div>
             <br>
-            <label for="load_real">Load Impedance for line2: R(Ω):</label>
-            <input type="number" 
-              id="load_real" 
-              step="0.001" required>
-            <br><br>
-            <label for="load_imag">Load Impedance for line2 X(Ω):</label>
-            <input type="number" 
-              id="load_imag" 
-              step="0.1" required>
-            <br><br>
-            <button type="submit">calculate Zin</button>
+            <br>
+            <button type="submit">calculate VSWR</button>
         </form>
         <br>
         <fieldset>

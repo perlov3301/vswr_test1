@@ -1,0 +1,146 @@
+html {
+/*prevent iOS text size adjust after orientation change */
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    /* remove default margin */
+    margin: 0;
+}
+/*-HTML5 normalize for each and every browser 00913829-*/
+article, aside, details,
+figcaption, figure, footer,
+header, hgroup, main,
+menu, nav, section,summary { display: blockl; }
+/*-inline-block in IE and vertical alignmeng of 'progress'-*/
+audio, canvas,
+progress, video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+/*-prevent browser from displaying 'audio' without controls
+   remove excess height in iOS5 */
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+/* '[hidden]' for IE; to hide the 'template' element in browsers*/
+[hidden],template { display: none; }
+/* Link : improve readability */
+a { background-color: transparent; }
+a:hover,
+a:active { outline: 0; }
+/*- text-level -*/
+/*- address style -*/
+abbr[title] { border-bottom: 1px dotted; }
+b, strong { font-weight: bold; }
+dfn { font-style: italic; }
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+mark {
+    background: #ff0;
+    color: #000;
+}
+small { font-size: 80%; }
+/*- prevent 'sub' and 'sup' affecting 'line-height' -*/
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+/*- Embedded  content-*/
+/* remove border inside 'a' element */
+img { border: 0; }
+/* correct overflow in IE */
+svg:not(:root) { overflow: hidden; }
+/*- Grouping content -*/
+/* address margin */
+figure { margin: 1em 40px; }
+/* avoid address differences in browsers */
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+/* content overflow */
+pre { overflow: auto; }
+/* address odd 'em' unit */
+code, kbd,
+pre, samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+/*- Forms -*/
+/* for 'select' set border property */
+/* colors */
+button, input, optgroup,
+select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+/* address 'overflow' was set to 'hidden' for IE */
+button { overflow: visible }
+/*  for IE & Firefox */
+button, select { text-transform: none; }
+/* Android 4 & iOS */
+/* button, 
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+
+}
+button[disabled],
+html input[disabled] { cursor: default }
+     */
+/*Firefox*/
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+/* Firefox: setting 'line-height' on 'input' using '!important' */
+input { line-height: normal; }
+/* sizing and remove excess padding in IE */
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+/* chrome's increment/decrement buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+/* Safari & Chrome */
+input[type="search"] {
+    -webkit-appearance: textfield;
+    appearance: auto;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+/* Safari */
+input[type="search"]::-webkit-search-cansel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+/* consistent border, margin, and padding */
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+    border-radius: 0.5em;
+}
+legend {
+    border: 0;
+    padding:0 ;
+}
+
